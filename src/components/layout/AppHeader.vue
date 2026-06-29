@@ -1,5 +1,5 @@
 <template>
-  <header class="glass flex h-[72px] items-center justify-between px-8">
+  <header class="topbar flex h-14 items-center justify-between rounded-lg px-6">
     <div>
       <h1 class="page-heading">{{ title }}</h1>
       <p v-if="subtitle" class="page-subheading mt-0.5">{{ subtitle }}</p>

@@ -1,5 +1,5 @@
 <template>
-  <div class="mesh-bg flex h-screen overflow-hidden">
+  <div class="app-shell flex h-screen overflow-hidden">
     <AppSidebar />
     <div class="flex flex-1 flex-col overflow-hidden">
       <div class="p-4 pb-0">
@@ -9,7 +9,7 @@
           </template>
         </AppHeader>
       </div>
-      <main class="flex-1 overflow-y-auto p-8 pt-6">
+      <main class="flex-1 overflow-y-auto p-6">
         <RouterView />
       </main>
     </div>

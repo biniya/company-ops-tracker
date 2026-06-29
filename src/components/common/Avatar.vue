@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex shrink-0 items-center justify-center rounded-full font-bold text-white ring-2 ring-white/30 shadow-sm"
+    class="flex shrink-0 items-center justify-center rounded-full font-medium text-white"
     :class="[sizeClass, colorClass]"
   >
     {{ initials }}
@@ -29,12 +29,12 @@ const initials = computed(() => {
 
 const colorClass = computed(() => {
   const colors = [
-    'bg-gradient-to-br from-indigo-500 to-violet-600',
-    'bg-gradient-to-br from-violet-500 to-purple-600',
-    'bg-gradient-to-br from-blue-500 to-indigo-600',
-    'bg-gradient-to-br from-rose-500 to-pink-600',
-    'bg-gradient-to-br from-emerald-500 to-teal-600',
-    'bg-gradient-to-br from-amber-500 to-orange-600',
+    'bg-blue-600',
+    'bg-zinc-600',
+    'bg-emerald-600',
+    'bg-amber-600',
+    'bg-red-500',
+    'bg-violet-600',
   ]
   const hash = props.name.split('').reduce((a, c) => a + c.charCodeAt(0), 0)
   return colors[hash % colors.length]

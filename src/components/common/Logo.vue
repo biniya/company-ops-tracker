@@ -1,7 +1,7 @@
 <template>
-  <div class="flex items-center gap-3" :class="sizeClass">
+  <div class="flex items-center gap-2.5" :class="sizeClass">
     <div
-      class="flex shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-brand-500 via-brand-600 to-accent-500 shadow-lg shadow-indigo-500/30"
+      class="flex shrink-0 items-center justify-center rounded-lg bg-brand-600"
       :class="iconSizeClass"
     >
       <svg viewBox="0 0 24 24" fill="none" class="text-white" :class="svgSizeClass">
@@ -11,10 +11,8 @@
       </svg>
     </div>
     <div v-if="showText">
-      <p class="font-bold tracking-tight" :class="titleClass">
-        Ops<span class="gradient-text">Board</span>
-      </p>
-      <p v-if="showTagline" class="text-[11px] font-medium text-slate-500 dark:text-slate-400">
+      <p class="font-semibold tracking-tight" :class="titleClass">OpsBoard</p>
+      <p v-if="showTagline" class="text-xs" :class="light ? 'text-zinc-400' : 'text-zinc-500 dark:text-zinc-400'">
         Company operations
       </p>
     </div>
@@ -28,13 +26,14 @@ const props = defineProps({
   size: { type: String, default: 'md' },
   showText: { type: Boolean, default: true },
   showTagline: { type: Boolean, default: false },
+  light: { type: Boolean, default: false },
 })
 
-const sizeClass = computed(() => ({ sm: '', md: '', lg: 'gap-4' }[props.size]))
-const iconSizeClass = computed(() => ({ sm: 'h-8 w-8', md: 'h-10 w-10', lg: 'h-14 w-14' }[props.size]))
-const svgSizeClass = computed(() => ({ sm: 'h-4 w-4', md: 'h-5 w-5', lg: 'h-7 w-7' }[props.size]))
+const sizeClass = computed(() => ({ sm: '', md: '', lg: 'gap-3' }[props.size]))
+const iconSizeClass = computed(() => ({ sm: 'h-8 w-8', md: 'h-9 w-9', lg: 'h-12 w-12' }[props.size]))
+const svgSizeClass = computed(() => ({ sm: 'h-4 w-4', md: 'h-4 w-4', lg: 'h-6 w-6' }[props.size]))
 const titleClass = computed(() => {
-  const sizes = { sm: 'text-sm', md: 'text-lg', lg: 'text-3xl' }
-  return `${sizes[props.size]} text-slate-900 dark:text-white`
+  const sizes = { sm: 'text-sm', md: 'text-base', lg: 'text-2xl' }
+  return `${sizes[props.size]} ${props.light ? 'text-white' : 'text-zinc-900 dark:text-zinc-50'}`
 })
 </script>

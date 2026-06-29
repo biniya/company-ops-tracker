@@ -1,5 +1,5 @@
 <template>
-  <aside class="glass-sidebar flex w-[272px] shrink-0 flex-col">
+  <aside class="sidebar flex w-64 shrink-0 flex-col">
     <div class="px-6 py-6">
       <Logo size="md" :show-tagline="true" />
     </div>
@@ -10,7 +10,7 @@
         class="mb-1 flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium"
         :class="linkClass('dashboard')"
       >
-        <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-indigo-50 text-brand-600 dark:bg-indigo-500/10 dark:text-indigo-300">
+        <span class="flex h-8 w-8 items-center justify-center rounded-md bg-brand-50 text-brand-600 dark:bg-brand-500/10 dark:text-brand-400">
           <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zm10 0a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zm10 0a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
           </svg>
@@ -24,20 +24,20 @@
         v-for="dept in departments.departments"
         :key="dept.id"
         :to="{ name: 'board', params: { departmentId: dept.id } }"
-        class="mb-0.5 flex items-center justify-between rounded-xl px-3 py-2.5 text-sm"
+        class="mb-0.5 flex items-center justify-between rounded-lg px-3 py-2 text-sm"
         :class="linkClass('board', dept.id)"
       >
         <span class="font-medium">{{ dept.name }}</span>
         <span
           v-if="activeCount(dept.id)"
-          class="rounded-full bg-gradient-to-r from-brand-500 to-accent-500 px-2 py-0.5 text-[11px] font-bold text-white shadow-sm"
+          class="rounded-full bg-brand-600 px-2 py-0.5 text-[11px] font-medium text-white"
         >
           {{ activeCount(dept.id) }}
         </span>
       </RouterLink>
     </nav>
 
-    <div class="border-t border-slate-200/50 p-4 dark:border-white/5">
+    <div class="border-t border-zinc-200 p-4 dark:border-zinc-800">
       <RouterLink
         v-if="auth.isAdmin"
         :to="{ name: 'settings' }"
@@ -51,11 +51,11 @@
         Settings
       </RouterLink>
 
-      <div class="flex items-center gap-3 rounded-2xl bg-gradient-to-r from-brand-500/10 to-accent-500/10 p-3 ring-1 ring-indigo-500/10 dark:from-brand-500/15 dark:to-accent-500/15">
+      <div class="flex items-center gap-3 rounded-lg border border-zinc-200 bg-zinc-50 p-3 dark:border-zinc-800 dark:bg-zinc-900">
         <Avatar :name="auth.profile?.full_name ?? 'User'" />
         <div class="min-w-0 flex-1">
-          <p class="truncate text-sm font-semibold text-slate-900 dark:text-white">{{ auth.profile?.full_name }}</p>
-          <p class="truncate text-xs text-slate-500">{{ auth.profile?.email }}</p>
+          <p class="truncate text-sm font-medium text-zinc-900 dark:text-zinc-50">{{ auth.profile?.full_name }}</p>
+          <p class="truncate text-xs text-zinc-500">{{ auth.profile?.email }}</p>
         </div>
       </div>
     </div>

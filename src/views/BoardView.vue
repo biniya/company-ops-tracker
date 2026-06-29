@@ -11,10 +11,14 @@
     </div>
 
     <template v-else>
-      <div class="mb-4 flex items-center justify-between">
-        <p class="text-sm text-zinc-500 dark:text-zinc-400">
-          Drag cards between columns using the <span class="font-medium text-zinc-600 dark:text-zinc-300">⋮⋮</span> handle
-        </p>
+      <div class="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <div class="rounded-lg border border-zinc-200 bg-zinc-50 px-4 py-2.5 dark:border-zinc-800 dark:bg-zinc-900">
+          <p class="text-sm text-zinc-600 dark:text-zinc-400">
+            <span class="font-medium text-zinc-900 dark:text-zinc-200">Drag</span> cards between columns
+            <span class="mx-1 text-zinc-300 dark:text-zinc-600">·</span>
+            or use <span class="font-medium text-zinc-900 dark:text-zinc-200">Move to</span> buttons on each card
+          </p>
+        </div>
         <button class="btn-primary shrink-0" @click="showCreate = true">
           <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />

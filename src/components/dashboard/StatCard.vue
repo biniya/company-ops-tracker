@@ -2,11 +2,11 @@
   <div class="card card-hover p-5">
     <div class="flex items-start justify-between">
       <div>
-        <p class="text-sm font-medium text-slate-500 dark:text-slate-400">{{ label }}</p>
-        <p class="mt-2 text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">{{ value }}</p>
+        <p class="text-sm font-medium text-zinc-500 dark:text-zinc-400">{{ label }}</p>
+        <p class="mt-1 text-3xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-50">{{ value }}</p>
         <p v-if="hint" class="mt-1.5 text-xs text-slate-400">{{ hint }}</p>
       </div>
-      <div class="flex h-11 w-11 items-center justify-center rounded-2xl shadow-sm" :class="accentBg">
+      <div class="flex h-10 w-10 items-center justify-center rounded-lg" :class="accentBg">
         <component :is="icon" class="h-5 w-5" :class="accentText" />
       </div>
     </div>
@@ -24,17 +24,17 @@ const props = defineProps({
 })
 
 const accentBg = computed(() => ({
-  brand: 'bg-gradient-to-br from-indigo-100 to-violet-100 dark:from-indigo-500/20 dark:to-violet-500/20',
-  rose: 'bg-gradient-to-br from-rose-100 to-pink-100 dark:from-rose-500/20 dark:to-pink-500/20',
-  emerald: 'bg-gradient-to-br from-emerald-100 to-teal-100 dark:from-emerald-500/20 dark:to-teal-500/20',
-  zinc: 'bg-gradient-to-br from-slate-100 to-slate-200 dark:from-slate-700/50 dark:to-slate-800/50',
+  brand: 'bg-brand-50 dark:bg-brand-500/10',
+  rose: 'bg-red-50 dark:bg-red-500/10',
+  emerald: 'bg-emerald-50 dark:bg-emerald-500/10',
+  zinc: 'bg-zinc-100 dark:bg-zinc-800',
 }[props.accent]))
 
 const accentText = computed(() => ({
-  brand: 'text-indigo-600 dark:text-indigo-300',
-  rose: 'text-rose-600 dark:text-rose-300',
-  emerald: 'text-emerald-600 dark:text-emerald-300',
-  zinc: 'text-slate-600 dark:text-slate-300',
+  brand: 'text-brand-600 dark:text-brand-400',
+  rose: 'text-red-600 dark:text-red-400',
+  emerald: 'text-emerald-600 dark:text-emerald-400',
+  zinc: 'text-zinc-600 dark:text-zinc-400',
 }[props.accent]))
 
 const icon = computed(() => {
