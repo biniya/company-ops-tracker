@@ -6,6 +6,7 @@
     </div>
     <div class="flex items-center gap-2">
       <slot name="actions" />
+      <NotificationBell />
       <ThemeToggle />
       <button class="btn-ghost" @click="auth.signOut().then(() => $router.push({ name: 'login' }))">
         Sign out
@@ -17,6 +18,7 @@
 <script setup>
 import { useAuthStore } from '../../stores/auth'
 import ThemeToggle from '../common/ThemeToggle.vue'
+import NotificationBell from './NotificationBell.vue'
 
 defineProps({ title: String, subtitle: String })
 const auth = useAuthStore()

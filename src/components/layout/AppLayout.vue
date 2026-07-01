@@ -42,6 +42,7 @@ const pageTitle = computed(() => {
   if (route.name === 'dashboard') return 'Overview'
   if (route.name === 'board') return departments.getById(route.params.departmentId)?.name ?? 'Board'
   if (route.name === 'work-item-detail') return 'Item'
+  if (route.name === 'reminders') return 'Reminders'
   if (route.name === 'settings') return 'Settings'
   return 'My Ops'
 })
@@ -49,7 +50,8 @@ const pageTitle = computed(() => {
 const pageSubtitle = computed(() => {
   if (route.name === 'dashboard') return 'What you are working on right now'
   if (route.name === 'board') return 'Drag items between columns to update status'
-  if (route.name === 'settings') return 'Manage your areas'
+  if (route.name === 'reminders') return 'Email and in-app alerts on your schedule'
+  if (route.name === 'settings') return 'Manage your areas and notifications'
   return null
 })
 </script>

@@ -9,6 +9,12 @@
       Back to board
     </button>
 
+    <div class="flex justify-end">
+      <button class="btn-secondary !text-xs" @click="showReminder = true">
+        Add reminder
+      </button>
+    </div>
+
     <div class="card overflow-hidden">
       <div class="border-b border-zinc-100 bg-zinc-50/50 px-6 py-5 dark:border-zinc-800 dark:bg-zinc-900/30">
         <div class="flex flex-wrap items-start gap-3">
@@ -67,6 +73,13 @@
   </div>
 
   <div v-else class="py-16 text-center text-zinc-400">Item not found</div>
+
+  <CreateReminderModal
+    v-if="item"
+    v-model="showReminder"
+    :default-title="item.title"
+    :work-item-id="item.id"
+  />
 </template>
 
 <script setup>
@@ -77,6 +90,7 @@ import WorkItemComments from '../components/work-items/WorkItemComments.vue'
 import ActivityTimeline from '../components/work-items/ActivityTimeline.vue'
 import StatusPipeline from '../components/work-items/StatusPipeline.vue'
 import Badge from '../components/common/Badge.vue'
+import CreateReminderModal from '../components/reminders/CreateReminderModal.vue'
 import { formatStatus } from '../lib/constants'
 import { useWorkItemsStore } from '../stores/workItems'
 import { useDepartmentsStore } from '../stores/departments'
@@ -86,6 +100,7 @@ const route = useRoute()
 const workItems = useWorkItemsStore()
 const departments = useDepartmentsStore()
 const loading = ref(true)
+const showReminder = ref(false)
 const item = computed(() => workItems.currentItem)
 
 useRealtime(route.params.id)
